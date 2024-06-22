@@ -6,7 +6,7 @@
 To deploy this project run
 
 ```bash
-  /instagram?url=
+  npm run live
 ```
 
 
