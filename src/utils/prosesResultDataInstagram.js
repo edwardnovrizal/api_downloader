@@ -7,7 +7,7 @@ function ProsesResultDataInstagram(result) {
       const data = {
         url: element.url ?? config.NO_URL_AVAILABLE,
         quality: element.quality ?? config.NO_QUALITY_AVAILABLE,
-        type: element.extension ?? config.NO_TYPE_AVAILABLE,
+        type: result.type ?? config.NO_TYPE_AVAILABLE,
         size: element.formattedSize ?? config.NO_SIZE_AVAILABLE,
       };
       media.push(data);

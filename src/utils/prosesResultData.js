@@ -5,13 +5,15 @@ function PorsessResultData(result) {
 
   if (result.medias != undefined) {
     result.medias.forEach((element) => {
-      const data = {
-        url: element.url,
-        quality: element.quality,
-        type: element.extension,
-        size: element.formattedSize,
-      };
-      media.push(data);
+      if (element.extension != "ogg") {
+        const data = {
+          url: element.url,
+          quality: element.quality,
+          type: element.extension,
+          size: element.formattedSize,
+        };
+        media.push(data);
+      }
     });
     const datas = {
       title: result.title ?? config.NO_TITLE_AVAILABLE,
