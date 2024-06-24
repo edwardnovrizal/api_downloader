@@ -2,15 +2,27 @@ const config = require("../config/config");
 
 function PorsesResultDataTiktok(result) {
   let media = [];
+  let music = [];
   if (result.data != undefined) {
     result.data.forEach((element) => {
-      console.log(element);
+      if (element.type == "mp3") {
+        const musicData = {
+          title: element.title,
+          Size: element.Size,
+          duration: element.duration,
+          url: element.download,
+          thumbnail: element.thumbnail,
+          type: element.type,
+        };
+        music.push(musicData);
+      }
       const data = {
         url: element.download ?? config.NO_URL_AVAILABLE,
         quality: element.status ?? config.NO_QUALITY_AVAILABLE,
         type: element.type ?? config.NO_TYPE_AVAILABLE,
         size: element.Size ?? config.NO_SIZE_AVAILABLE,
       };
+
       media.push(data);
     });
     const datas = {
@@ -18,6 +30,7 @@ function PorsesResultDataTiktok(result) {
       thumbnail: result.data[0].thumbnail ?? config.NO_IMAGE_AVAILABLE,
       duration: result.data[0].duration ?? config.NO_DURATION_AVAILABLE,
       media: media,
+      music: music,
     };
 
     return datas;

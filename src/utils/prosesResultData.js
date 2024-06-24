@@ -20,6 +20,7 @@ function PorsessResultData(result) {
       thumbnail: result.thumbnail ?? config.NO_IMAGE_AVAILABLE,
       duration: result.duration ?? "",
       media: media,
+      music: [],
     };
 
     return datas;

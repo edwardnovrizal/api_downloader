@@ -17,6 +17,7 @@ function ProsesResultDataInstagram(result) {
       thumbnail: result.data[0].thumbnail ?? config.NO_IMAGE_AVAILABLE,
       duration: result.duration ?? config.NO_DURATION_AVAILABLE,
       media: media,
+      music: [],
     };
 
     return datas;
