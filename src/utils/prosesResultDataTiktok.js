@@ -15,15 +15,25 @@ function PorsesResultDataTiktok(result) {
           type: element.type,
         };
         music.push(musicData);
-      }
-      const data = {
-        url: element.download ?? config.NO_URL_AVAILABLE,
-        quality: element.status ?? config.NO_QUALITY_AVAILABLE,
-        type: element.type ?? config.NO_TYPE_AVAILABLE,
-        size: element.Size ?? config.NO_SIZE_AVAILABLE,
-      };
+      } else if (element.type == "video") {
+        const data = {
+          url: element.download ?? config.NO_URL_AVAILABLE,
+          quality: element.status ?? config.NO_QUALITY_AVAILABLE,
+          type: element.type ?? config.NO_TYPE_AVAILABLE,
+          size: element.Size ?? config.NO_SIZE_AVAILABLE,
+        };
 
-      media.push(data);
+        media.push(data);
+      } else {
+        const data = {
+          url: "",
+          quality: "",
+          type: "",
+          size: "",
+        };
+
+        media.push(data);
+      }
     });
     const datas = {
       title: result.data[0].title ?? config.NO_TITLE_AVAILABLE,
